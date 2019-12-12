@@ -1,0 +1,20 @@
+https://blog.csdn.net/weixin_34101229/article/details/91395871
+视频教程: https://www.bilibili.com/video/av67760177
+<1>. @Spy和 @SpyBean的区别， @Mock 和 @MockBean的区别<https://blog.csdn.net/weixin_34195546/article/details/92105659>
+1、spy和mock生成的对象不受spring管理
+2、spy调用真实方法时，其它bean是无法注入的，要使用注入，要使用SpyBean
+3、SpyBean和MockBean生成的对象受spring管理，相当于自动替换对应类型bean的注入，比如@Autowired等注入
+<2>. 用spy监控真实对象
+Mock不是真实的对象，它只是用类型的class创建了一个虚拟对象，并可以设置对象行为
+Spy是一个真实的对象，但它可以设置对象行为
+InjectMocks创建这个类的对象并自动将标记@Mock、@Spy等注解的属性值注入到这个中
+
+
+
+
+
+
+
+
+
+
