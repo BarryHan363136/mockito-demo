@@ -1,5 +1,6 @@
 package com.barry.mockito.utis;
 
+import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.ArgumentCaptor;
@@ -14,6 +15,7 @@ import static org.junit.Assert.*;
 /**
  * https://www.cnblogs.com/Ming8006/p/6297333.html#top
  * */
+@Slf4j
 @RunWith(MockitoJUnitRunner.class)
 public class ParamAssertTest {
 
@@ -95,8 +97,22 @@ public class ParamAssertTest {
         assertEquals("hello world:999",mockList.get(999));
     }
 
+    /**
+     * 参数匹配器 matchers
+     * */
+    public void paraMatchers(){
+        //stubbing using built-in anyInt() argument matcher
+        //使用内置的anyInt()参数匹配器
+        when(mockList.get(anyInt())).thenReturn("element");
 
+        //stubbing using custom matcher
+        //使用自定义的参数匹配器(在isVaild函数中返回你自己的匹配)
+        //when(mockedList.contains(argThat(isValid()))).thenReturn("element");
 
+        log.info(""+mockList.get(999));
+        //也可以验证参数匹配器
+        verify(mockList).get(anyInt());
+    }
 
 
 
